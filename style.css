@@ -1,3 +1,17 @@
 body {
     background-color: #ccc
 }
+
+p,
+dt {
+    font-weight: bold;
+}
+
+dl,
+dd {
+    font-size: 0.9rem;
+}
+
+dd {
+    margin-bottom: 1em;
+}
