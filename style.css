@@ -2,6 +2,21 @@ body {
     background-color: #ccc
 }
 
+header {
+    position: sticky;
+    top:0;
+    background-color: aqua;
+}
+
+header #search-menu {
+    background-color: red;
+
+}
+
+.hide {
+    display: none;
+}
+
 p,
 dt {
     font-weight: bold;

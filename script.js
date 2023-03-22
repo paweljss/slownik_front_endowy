@@ -2,8 +2,8 @@ const searchBar = document.querySelector("[type=search]");
 
 const definitionList = document.querySelectorAll("dt");
 
-const searchDefinition = function (e_target_value) {
-	const regex = new RegExp("^" + e_target_value, "i");
+const searchDefinition = function (eTargetValue) {
+	const regex = new RegExp("^" + eTargetValue, "i");
 	let arrOfMatch = [];
 	for (const el of definitionList) {
 		if (regex.test(el.innerHTML)) {
@@ -13,6 +13,25 @@ const searchDefinition = function (e_target_value) {
 	return arrOfMatch;
 };
 
+const addToSearchList = function (arrayOfsearch) {
+	const searchList = document.querySelector("#search-menu ul");
+	searchList.innerHTML = "";
+	if(arrayOfsearch.length == definitionList.length) return;
+	return arrayOfsearch.map((el) => {
+		const searchListLi = document.createElement("li");
+		searchListLi.textContent = el;
+		searchList.appendChild(searchListLi);
+	});
+};
+
 searchBar.addEventListener("input", (e) =>
-	console.log(searchDefinition(e.target.value))
+	addToSearchList(searchDefinition(e.target.value))
 );
+
+
+searchBar.addEventListener("keypress", (e) => {
+	if (e.key == "Enter") {
+		e.preventDefault();
+		console.log(e.target.value);
+	}
+});
