@@ -5,19 +5,23 @@ body {
 header {
     position: sticky;
     top:0;
-    background-color: aqua;
+    display: flex;
+    padding: 2rem;
+    background-color: #000;
 }
 
-header #search-menu {
-    background-color: red;
-
+header input {
+    margin: 0 auto;
 }
 
 .hide {
-    display: none;
+    display: none;  
 }
 
-p,
+article {
+    padding-bottom: 200px;
+}
+
 dt {
     font-weight: bold;
 }

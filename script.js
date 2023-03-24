@@ -13,25 +13,18 @@ const searchDefinition = function (eTargetValue) {
 	return arrOfMatch;
 };
 
-const addToSearchList = function (arrayOfsearch) {
-	const searchList = document.querySelector("#search-menu ul");
-	searchList.innerHTML = "";
-	if(arrayOfsearch.length == definitionList.length) return;
-	return arrayOfsearch.map((el) => {
-		const searchListLi = document.createElement("li");
-		searchListLi.textContent = el;
-		searchList.appendChild(searchListLi);
-	});
-};
+const updateDefinitionDocument = function (arrayOfSearchDefinition) {
+	return definitionList.forEach((dt) => { !arrayOfSearchDefinition.includes(dt.innerHTML) ? dt.parentNode.classList.add("hide") : dt.parentNode.classList.remove("hide") })
+}
+
 
 searchBar.addEventListener("input", (e) =>
-	addToSearchList(searchDefinition(e.target.value))
+updateDefinitionDocument(searchDefinition(e.target.value))
 );
-
 
 searchBar.addEventListener("keypress", (e) => {
 	if (e.key == "Enter") {
 		e.preventDefault();
-		console.log(e.target.value);
+		searchBar.blur()
 	}
 });
