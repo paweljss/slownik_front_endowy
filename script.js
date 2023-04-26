@@ -6,9 +6,9 @@ const asideListOfTerms = document.querySelectorAll("#asiade-list-of-terms li");
 
 const clearButton = document.querySelector("#clear");
 
-const showElements = function(dt) {
+const showElements = function (dt) {
 	dt.parentNode.classList.remove("hide");
-}
+};
 
 const searchDefinition = function (eTargetValue) {
 	const regex = new RegExp("^" + eTargetValue, "i");
@@ -42,8 +42,10 @@ searchBar.addEventListener("keypress", (e) => {
 
 clearButton.addEventListener("click", () => {
 	searchBar.value = "";
-	definitionList.forEach((dt) => {showElements(dt)});
-})
+	definitionList.forEach((dt) => {
+		showElements(dt);
+	});
+});
 
 for (const asideLi of asideListOfTerms) {
 	asideLi.addEventListener("click", (e) => {
@@ -51,3 +53,13 @@ for (const asideLi of asideListOfTerms) {
 		updateDefinitionDocument([searchBar.value]);
 	});
 }
+
+const header = document.querySelector("header");
+
+document.addEventListener("scroll", () => {
+	if(window.scrollY > 0) {
+		header.classList.add("small");
+	} else {
+		header.classList.remove("small")
+	}
+});
