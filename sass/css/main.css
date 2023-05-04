@@ -148,3 +148,76 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+@media (max-width: 760px) {
+  body {
+    background-color: #2dc7ff; }
+    body header {
+      justify-content: center;
+      padding: 1rem 0;
+      height: fit-content; }
+      body header::before {
+        content: "\f0c9";
+        font-family: "Font Awesome 5 Free";
+        display: block;
+        font-weight: 900;
+        font-size: xx-large;
+        color: #0072b5;
+        position: absolute;
+        top: 1rem;
+        left: 1rem; }
+      body header #header-box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 90%; }
+        body header #header-box img {
+          height: 64px; }
+        body header #header-box h1 {
+          font-size: 18px;
+          margin-top: 0;
+          width: 90px; }
+        body header #header-box #searchbar {
+          width: 100%;
+          max-width: 588px;
+          height: min-content; }
+          body header #header-box #searchbar input {
+            width: 80%;
+            min-width: 100px;
+            max-width: 450px; }
+    body main {
+      grid-column: 1/13; }
+    body aside {
+      display: none;
+      grid-column: 1/13;
+      grid-row: 1/3;
+      z-index: 100;
+      background-color: rgba(234, 249, 255, 0.01); }
+      body aside ul {
+        width: 85%;
+        height: 100vh;
+        background-color: #eaf9ff;
+        margin: 0;
+        padding-top: 2rem;
+        text-align: center; }
+      body aside::after {
+        content: ".";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 15%;
+        background-color: rgba(245, 223, 77, 0.5);
+        color: rgba(245, 223, 77, 0.5); }
+      body aside::before {
+        content: "\f00d";
+        font-family: "Font Awesome 5 Free";
+        display: block;
+        font-weight: 900;
+        font-size: xx-large;
+        color: #0072b5;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background-color: #eaf9ff; } }

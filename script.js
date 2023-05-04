@@ -57,7 +57,7 @@ for (const asideLi of asideListOfTerms) {
 const header = document.querySelector("header");
 
 document.addEventListener("scroll", () => {
-	if(window.scrollY > 0) {
+	if(window.scrollY > 0 && window.innerWidth > 760) {
 		header.classList.add("small");
 	} else {
 		header.classList.remove("small")
