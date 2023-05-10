@@ -6,6 +6,8 @@ const asideListOfTerms = document.querySelectorAll("#asiade-list-of-terms li");
 
 const clearButton = document.querySelector("#clear");
 
+const main = document.querySelector("main");
+
 const showElements = function (dt) {
 	dt.parentNode.classList.remove("hide");
 };
@@ -22,11 +24,13 @@ const searchDefinition = function (eTargetValue) {
 };
 
 const updateDefinitionDocument = function (arrayOfSearchDefinition) {
-	return definitionList.forEach((dt) => {
-		!arrayOfSearchDefinition.includes(dt.innerHTML)
-			? dt.parentNode.classList.add("hide")
-			: showElements(dt);
-	});
+
+		return definitionList.forEach((dt) => {
+			!arrayOfSearchDefinition.includes(dt.innerHTML)
+				? dt.parentNode.classList.add("hide")
+				: showElements(dt);
+		});
+
 };
 
 searchBar.addEventListener("input", (e) =>
@@ -57,9 +61,26 @@ for (const asideLi of asideListOfTerms) {
 const header = document.querySelector("header");
 
 document.addEventListener("scroll", () => {
-	if(window.scrollY > 0 && window.innerWidth > 760) {
+	if (window.scrollY > 0 && window.innerWidth > 760) {
 		header.classList.add("small");
 	} else {
-		header.classList.remove("small")
+		header.classList.remove("small");
 	}
 });
+
+header.addEventListener("click", (e) => {
+
+	if (e.clientX < 38 && e.clientY < 45) {
+		aside.classList.add("show");
+	}
+});
+
+const aside = document.querySelector("aside");
+
+aside.addEventListener("click", (e) => {
+
+	if (e.clientX < 38 && e.clientY < 45) {
+		aside.classList.remove("show");
+	}
+});
+
